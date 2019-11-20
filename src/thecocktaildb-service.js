@@ -8,8 +8,8 @@ export class TheCocktailDBSearch {
 
 export class TheCocktailDBSpirits {
   async getCocktailBySpirit(spiritName) {
-    let response = await fetch(`https://www.thecocktaildb.com/api/json/v1/${process.env.API_KEY}/filter.php?i=${spiritName}`);
-    let jsonifiedResponse2 = await response.json();
+    let response2 = await fetch(`https://www.thecocktaildb.com/api/json/v1/${process.env.API_KEY}/filter.php?i=${spiritName}`);
+    let jsonifiedResponse2 = await response2.json();
     return jsonifiedResponse2;
   }
 }

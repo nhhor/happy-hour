@@ -50,19 +50,20 @@ $(document).ready(function() {
 
 
 
-
-    const drinkSpirit = $('#drinkSpirit').val();
-    $('#drinkSpirit').val("");
+    let spiritName = "rum";
+    // const spiritName = $('#drinkSpirit').val();
+    // $('#drinkSpirit').val("");
 
     (async () => {
-      let theCocktailDB = new TheCocktailDBSpirits();
-      let response = await theCocktailDB.getCocktailByName(drinkSpirit);
-      getElements2(response);
+      let theCocktailDB2 = new TheCocktailDBSpirits();
+      let response2 = await theCocktailDB2.getCocktailBySpirit(spiritName);
+      getElements2(response2);
     })();
 
-    function getElements2(response) {
-      let keys = Object.keys(response.drinks[0]);
-      let values = Object.values(response.drinks[0]);
+    function getElements2(response2) {
+      let keys2 = Object.keys(response2.drinks[0]);
+      let values2 = Object.values(response2.drinks[0]);
+      console.log("2nd API: ",response2);
     }
 
 
