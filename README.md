@@ -1,13 +1,13 @@
-# Application: **Pandemic**
+# Application: **template**
 
-##### By Noah Horwitz & Lee Pedersen
+##### By Noah Horwitz & Celeste Morton
 
-###### _First published 2019-11-18_
+###### _First published 2019-11-20_
 
 ## Description:
-This project was made as part of a coding project for Noah Horwitz & Lee Pedersen, students at _[Epicodus](http://www.epicodus.com)_, a vocational school for technology careers, based in Portland, OR. The project is designed to create an application that resembles some of the aspects of the popular board game, Pandemic.
+This project was made as part of a coding project for Noah Horwitz & Celeste Morton, students at _[Epicodus](http://www.epicodus.com)_, a vocational school for technology careers based in Portland, OR. The project is designed to XXX.
 
-The fully deployed project is hosted on GH-Pages [HERE](https://nhhor.github.io/pandemic).
+<!-- The fully deployed project is hosted on GH-Pages [HERE](https://nhhor.github.io/pandemic). -->
 
 ## Setup/Installation instructions:
 * Click the `Clone or download` button and copy the link.
@@ -32,16 +32,13 @@ The fully deployed project is hosted on GH-Pages [HERE](https://nhhor.github.io/
 
 |Spec|Input|Output|
 |-|-|-|
-|City has timer trigger if `contamination` > 0 every 10 seconds|`contamination` = 1, useFakeTimers(10001)|`contamination` = 2|
+
 
 ## References
-* `Siren` sound provided by snottyboy under [Attribution 3.0](https://creativecommons.org/licenses/by/3.0/us/) license.
-* `Tick` sound provided by DeepFrozenApps under [Attribution 3.0](https://creativecommons.org/licenses/by/3.0/us/) license.
-* `TaDa` sound provided by Mike Koenig under [Attribution 3.0](https://creativecommons.org/licenses/by/3.0/us/) license.
-* `SadSound` sound provided by Mike Koenig under [Attribution 3.0](https://creativecommons.org/licenses/by/3.0/us/) license.
+
 
 ## Support and contact details
 Contact [example@sample.com](mailto:example@sample.com)
 
 ## License
-_This This repository is copyright (C) 2019 by Noah Horwitz & Lee Pedersen and licensed under the GNU General Public License v3.0 [gpl-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)_.
+_This This repository is copyright (C) 2019 by Noah Horwitz & Celeste Morton and licensed under the GNU General Public License v3.0 [gpl-3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)_.

@@ -1,71 +1,7 @@
-#worldMap td{
-  border: 0px;
-  padding: 0px;
-  margin: 0px;
-  height: 17vh;
-  width: 17vw;
-  border-style: inset;
-  border-width: 1px;
-  border-color: #a4cb6e;
+.container {
+  padding-top: 100px;
 }
 
-body {
-  background-color: black;
-  color: white;
-  font-size: 20px;
-}
-
-span {
-  position: absolute;
-  margin-left: 10px;
-  color: #a4cb6e;
-  background-color:rgba(0,64,0,0.7);
-
-  border-radius: 50%;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.btn {
-  margin-left: 30px;
-  margin-top: 40px;
-}
-
-.infected1 img {
-  opacity: .75;
-}
-
-.infected2 img {
-  opacity: .5;
-}
-
-.infected3 img {
-  opacity: .25;
-}
-
-td {
-  background-image: radial-gradient(circle, rgba(255,0,0,1) 0%, rgba(255,255,255,0) 100%);
-}
-
-#vaccinate, #treat {
-  display: none;
-}
-
-#showResults {
-  font-size: 72px;
-  text-align: center;
-  background-image: radial-gradient(circle, rgba(255,0,0,1) 0%, rgba(255,255,255,0) 100%);
-  /* position: sticky; */
-  top: 100px;
-  left: 100px;
-}
-
-.instructions {
-  font-size: 16px;
-  padding-left: 30px;
-  padding-right: 15px;
-}
-
-#newGame {
-  display: none;
+.key {
+  font-weight: 700;
 }
