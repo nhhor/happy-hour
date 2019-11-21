@@ -45,14 +45,17 @@ $(document).ready(function() {
         }
       }
     }
+  });
 
 
+  $('#getListButton').click(function() {
+
+    $("ul#spiritDetails").children().remove();
 
 
-
-    let spiritName = "rum";
-    // const spiritName = $('#drinkSpirit').val();
-    // $('#drinkSpirit').val("");
+    // let spiritName = "rum";
+    let spiritName = $('#spiritName').val();
+    $('#spiritName').val("");
 
     (async () => {
       let theCocktailDB2 = new TheCocktailDBSpirits();
@@ -62,24 +65,12 @@ $(document).ready(function() {
 
     function getElements2(response2) {
       let keys2 = Object.keys(response2.drinks[0]);
-      let values2 = Object.values(response2.drinks[0]);
-      console.log("2nd API: ",response2);
+      let values2 = Object.values(response2.drinks);
+      console.log("2nd API: ",values2);
+
+      for(let i = 0; i <(values2.length); i++) {
+        $("#spiritDetails").append("<li>" + values2[i].strDrink + "</li>")
+      }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   });
 });
