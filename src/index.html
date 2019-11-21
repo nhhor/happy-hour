@@ -4,31 +4,42 @@
 </head>
 <body>
   <div class="container">
-    <h1>Look Up Drinks By Your Favorite Spirit</h1>
-    <label for="spiritName">Enter a spirit name:</label>
-    <input id="spiritName" type="text">
-    <button class="btn-success" id="getListButton">Find List of Drinks</button>
-    <div class="errors"></div>
-    <div class="showSpiritName"></div>
-    <div class="showSpiritList"></div>
-    <ul id="spiritDetails">
-    </ul>
-
-
-
-
-
-
     <h1>Look Up Your Favorite Cocktail</h1>
     <label for="drinkName">Enter a drink name:</label>
     <input id="drinkName" type="text">
     <button class="btn-success" id="getDrinkButton">Find Drink Recipe</button>
+    <hr>
+    <h1>OR Look Up Drinks By Your Favorite Spirit</h1>
+    <div class="errors"></div>
+    <div class="showSpiritName"></div>
+    <div class="showSpiritList"></div>
+    <div class="form-group col-md-4">
+      <label for="spiritName">Select a Spirit:</label>
+      <select id="spiritName" class="form-control">
+        <option value="" selected></option>
+        <option value="Vodka">Vodka</option>
+        <option value="Gin">Gin</option>
+        <option value="Rum">Rum</option>
+        <option value="Tequila">Tequila</option>
+        <option value="Whiskey">Whiskey</option>
+        <option value="Brandy">Brandy</option>
+        <option value="Scotch">Scotch</option>
+      </select>
+      <br>
+    </div>
+    <div class="form-group col-md-4">
+      <label for="drinkList">Select a Drink:</label>
+      <select id="drinkList" class="form-control">
+      </select>
+      <hr>
+    </div>
     <div class="errors"></div>
     <div class="showDrinkName"></div>
     <div class="showDrinkRecipe"></div>
+    <div id="drinkResults">
     <ul id="drinkDetails">
     </ul>
-    <table class="table table-hover table-striped">
+    <table id="drinkTable" class="table table-hover table-striped">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -39,6 +50,7 @@
       <tbody class="ingredient-list">
       </tbody>
     </table>
+    </div>
   </div>
 </body>
 </html>

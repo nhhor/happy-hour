@@ -2,6 +2,15 @@
   padding-top: 100px;
 }
 
+.form-control {
+  border-color: #5DE89D;
+  font-weight: 600;
+}
+
 .key {
   font-weight: 700;
+}
+
+#drinkResults {
+  display: none;
 }
