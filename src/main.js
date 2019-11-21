@@ -5,49 +5,60 @@ import './styles.css';
 import { TheCocktailDBSearch } from './../src/thecocktaildb-service.js';
 import { TheCocktailDBSpirits } from './../src/thecocktaildb-service.js';
 
+
+
 $(document).ready(function() {
   // This is where the recipe pulls up
-    $('#getDrinkButton').click(function() {
+  $('#getDrinkButton').click(function() {
 
-      $("ul#drinkDetails").children().remove();
-      $("tbody.ingredient-list").children().remove();
-      $("#drinkResults").fadeIn(1000);
+    $("ul#drinkDetails").children().remove();
+    $("tbody.ingredient-list").children().remove();
+    $("#drinkResults").fadeIn(1000);
+
+    const drinkName = $('#drinkName').val();
+    $('#drinkName').val("");
 
 
 
-      const drinkName = $('#drinkName').val();
-      $('#drinkName').val("");
+    (async () => {
+      let theCocktailDB = new TheCocktailDBSearch();
+      let response = await theCocktailDB.getCocktailByName(drinkName);
+      getElements(response);
+    })();
 
-      (async () => {
-        let theCocktailDB = new TheCocktailDBSearch();
-        let response = await theCocktailDB.getCocktailByName(drinkName);
-        getElements(response);
-      })();
+    function getElements(response) {
+      let keys = Object.keys(response.drinks[0]);
+      let values = Object.values(response.drinks[0]);
 
-      function getElements(response) {
-        let keys = Object.keys(response.drinks[0]);
-        let values = Object.values(response.drinks[0]);
+      // DISPLAY DRINK IMAGE
+      if (response.drinks[0].strDrinkThumb != null) {
+        $("ul#drinkDetails").prepend("<HR><img src="+response.drinks[0].strDrinkThumb+" width='300px'>");
+      }
 
-        // DISPLAY DRINK IMAGE
-        if (response.drinks[0].strDrinkThumb != null) {
-          $("ul#drinkDetails").prepend("<HR><img src="+response.drinks[0].strDrinkThumb+" width='300px'>");
-        }
-
-        // APPEND DRINK INFO
-        for(let i = 1; i < (values.length-32); i++) {
-          if(values[i] != null && values[i] != "" && keys[i] != "strInstructionsDE" && keys[i] != "strInstructionsES" && keys[i] != "strInstructionsFR" && keys[i] != "strInstructionsZH-HANS" && keys[i] != "strInstructionsZH-HANT" && keys[i] != "strDrinkThumb") {
-            $("ul#drinkDetails").append("<li><span class='key'> " + (keys[i]).slice(3) + ":</span> " + values[i] +" </li>");
-          }
-        }
-
-        // APPEND INGREDIENT TABLE
-        for(let i = 21; i <(values.length-17); i++) {
-          if(values[i] != null && values[i] != "") {
-            $(".ingredient-list").append("<tr><th scope='row'>" + (i-20) + "</th><td>" + (values[i]) + "</td><td>" + (values[(i+15)]) + "</td></tr>");
-          }
+      // APPEND DRINK INFO
+      for(let i = 1; i < (values.length-32); i++) {
+        if(values[i] != null && values[i] != "" && keys[i] != "strInstructionsDE" && keys[i] != "strInstructionsES" && keys[i] != "strInstructionsFR" && keys[i] != "strInstructionsZH-HANS" && keys[i] != "strInstructionsZH-HANT" && keys[i] != "strDrinkThumb") {
+          $("ul#drinkDetails").append("<li><span class='key'> " + (keys[i]).slice(3) + ":</span> " + values[i] +" </li>");
         }
       }
-    });
+
+
+      function ingredientCheck(i) {
+        if ((values[(i+15)]) === null) {
+          return "to taste";
+        } else {
+          return (values[(i+15)]);
+        }
+      }
+
+      // APPEND INGREDIENT TABLE
+      for(let i = 21; i <(values.length-17); i++) {
+        if(values[i] != null && values[i] != "") {
+          $(".ingredient-list").append("<tr><th scope='row'>" + (i-20) + "</th><td>" + (values[i]) + "</td><td>" + ingredientCheck(i) + "</td></tr>");
+        }
+      }
+    }
+  });
 
 
 
@@ -84,7 +95,6 @@ $(document).ready(function() {
   });
 
   // This is where the recipe displays on select
-
   $('#drinkList').on("change",function() {
     let drinkName = this.value;
     $("#drinkResults").fadeIn(1000);
@@ -93,8 +103,6 @@ $(document).ready(function() {
     $("tbody.ingredient-list").children().remove();
 
 
-    // const drinkName = $('#drinkName').val();
-    // $('#drinkName').val("");
 
     (async () => {
       let theCocktailDB = new TheCocktailDBSearch();
@@ -118,15 +126,22 @@ $(document).ready(function() {
         }
       }
 
+      function ingredientCheck(i) {
+        if ((values[(i+15)]) === null) {
+          return "to taste";
+        } else {
+          return (values[(i+15)]);
+        }
+      }
+
       // APPEND INGREDIENT TABLE
       for(let i = 21; i <(values.length-17); i++) {
         if(values[i] != null && values[i] != "") {
-          $(".ingredient-list").append("<tr><th scope='row'>" + (i-20) + "</th><td>" + (values[i]) + "</td><td>" + (values[(i+15)]) + "</td></tr>");
+          $(".ingredient-list").append("<tr><th scope='row'>" + (i-20) + "</th><td>" + (values[i]) + "</td><td>" + ingredientCheck(i) + "</td></tr>");
         }
       }
     }
   });
-
 
 
 
