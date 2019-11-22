@@ -5,7 +5,9 @@ export class TheCocktailDBSearch {
       let jsonifiedResponse = await response.json();
 
       if(jsonifiedResponse.drinks === null) {
-        throw TypeError("Drink Does Not Exist Here!");
+        jsonifiedResponse = "Sorry, that drink does not exist.";
+        return jsonifiedResponse;
+        // throw TypeError("Drink Does Not Exist Here!");
       } else {
         return jsonifiedResponse;
       }

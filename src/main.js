@@ -12,6 +12,7 @@ $(document).ready(function() {
   $('#getDrinkButton').click(function() {
 
     $("ul#drinkDetails").children().remove();
+    $(".drink-image").children().remove();
     $("tbody.ingredient-list").children().remove();
     $("#drinkResults").fadeIn(1000);
 
@@ -19,10 +20,21 @@ $(document).ready(function() {
     $('#drinkName').val("");
 
 
-
     (async () => {
       let theCocktailDB = new TheCocktailDBSearch();
       let response = await theCocktailDB.getCocktailByName(drinkName);
+
+      if (response === "Sorry, that drink does not exist.") {
+        $(".errors").show();
+        $(".errors").text(response);
+        $("#drinkResults").hide();
+      } else {
+        $(".errors").hide();
+      }
+      console.log(response);
+
+
+
       getElements(response);
     })();
 
@@ -32,7 +44,7 @@ $(document).ready(function() {
 
       // DISPLAY DRINK IMAGE
       if (response.drinks[0].strDrinkThumb != null) {
-        $("ul#drinkDetails").prepend("<HR><img src="+response.drinks[0].strDrinkThumb+" width='300px'>");
+        $(".drink-image").prepend("<img src="+response.drinks[0].strDrinkThumb+" width='80%'>");
       }
 
       // APPEND DRINK INFO
@@ -69,7 +81,7 @@ $(document).ready(function() {
     // } else {
     $("select#drinkList").children().remove();
     $("select#drinkList").append('<option value="" selected></option>');
-
+    $(".select-drink").slideDown(1000);
     // let spiritName = "rum";
     // let spiritName = this.value;
     // $('#spiritName').val("");
@@ -100,6 +112,7 @@ $(document).ready(function() {
     $("#drinkResults").fadeIn(1000);
 
     $("ul#drinkDetails").children().remove();
+    $(".drink-image").children().remove();
     $("tbody.ingredient-list").children().remove();
 
 
@@ -116,7 +129,8 @@ $(document).ready(function() {
 
       // DISPLAY DRINK IMAGE
       if (response.drinks[0].strDrinkThumb != null) {
-        $("ul#drinkDetails").prepend("<HR><img src="+response.drinks[0].strDrinkThumb+" width='300px'>");
+
+        $(".drink-image").prepend("<img src="+response.drinks[0].strDrinkThumb+" width='80%'>");
       }
 
       // APPEND DRINK INFO
@@ -142,19 +156,6 @@ $(document).ready(function() {
       }
     }
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 });

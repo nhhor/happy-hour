@@ -1,55 +1,76 @@
 <html>
 <head>
   <link href="https://fonts.googleapis.com/css?family=Vollkorn&display=swap" rel="stylesheet">
-  <title>Thirsty</title>
+  <title>Happy Hour</title>
 </head>
 <body>
   <div class="container">
     <h1>Look Up Your Favorite Cocktail</h1>
     <label for="drinkName">Enter a drink name:</label>
-    <input id="drinkName" type="text">
-    <button class="btn-success" id="getDrinkButton">Find Drink Recipe</button>
+    <input class="" id="drinkName" type="text">
+    <button class="btn-success btn-lg" id="getDrinkButton">Find Drink Recipe</button>
     <hr>
     <h1>Look Up Drinks By Your Favorite Spirit</h1>
-    <div class="errors"></div>
-    <div class="showSpiritName"></div>
-    <div class="showSpiritList"></div>
-    <div class="form-group col-md-4">
-      <label for="spiritName">Select a Spirit:</label>
-      <select id="spiritName" class="form-control">
-        <option value="" selected></option>
-        <option value="Vodka">Vodka</option>
-        <option value="Gin">Gin</option>
-        <option value="Rum">Rum</option>
-        <option value="Tequila">Tequila</option>
-        <option value="Whiskey">Whiskey</option>
-        <option value="Brandy">Brandy</option>
-        <option value="Scotch">Scotch</option>
-      </select>
-      <br>
+    <div class="row">
+
+      <!-- <div class="col-md-1">
+
+      </div> -->
+
+      <div class="form-group col-md-6">
+        <label for="spiritName">Select a Spirit:</label>
+        <select id="spiritName" class="form-control">
+          <option value="" selected></option>
+          <option value="Vodka">Vodka</option>
+          <option value="Gin">Gin</option>
+          <option value="Rum">Rum</option>
+          <option value="Tequila">Tequila</option>
+          <option value="Whiskey">Whiskey</option>
+          <option value="Brandy">Brandy</option>
+          <option value="Scotch">Scotch</option>
+        </select>
+        <br>
+      </div>
+
+      <!-- <div class="col-md-2">
+
+      </div> -->
+
+      <div class="form-group col-md-6 select-drink">
+        <label for="drinkList">Select a Drink:</label>
+        <select id="drinkList" class="form-control">
+        </select>
+      </div>
+
+      <!-- <div class="col-md-1">
+
+      </div> -->
+
+
     </div>
-    <div class="form-group col-md-4">
-      <label for="drinkList">Select a Drink:</label>
-      <select id="drinkList" class="form-control">
-      </select>
-      <hr>
-    </div>
-    <div class="showDrinkName"></div>
-    <div class="showDrinkRecipe"></div>
+    <hr>
     <div id="drinkResults">
-    <ul id="drinkDetails">
-    </ul>
-    <table id="drinkTable" class="table table-hover table-striped">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Ingredient</th>
-          <th scope="col">Measurements</th>
-        </tr>
-      </thead>
-      <tbody class="ingredient-list">
-      </tbody>
-    </table>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="drink-image">
+          </div>
+        </div>
+        <div class="col-md-6">
+          <ul id="drinkDetails">
+          </ul>
+        </div>
+      </div>
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Ingredient</th>
+            <th scope="col">Measurements</th>
+          </tr>
+        </thead>
+        <tbody class="ingredient-list">
+        </tbody>
+      </table>
     </div>
     <div class="errors"></div>
   </div>

@@ -1,4 +1,4 @@
-# Application: **template**
+# Application: **Happy Hour**
 
 ##### By Noah Horwitz & Celeste Morton
 
